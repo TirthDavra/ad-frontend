@@ -83,7 +83,6 @@ export default function Navbar() {
         </div>
       )}
     </nav>
-    <AdBanner adSlot="1234567890" adFormat="auto" fullWidth={true} />
     </>
   );
 }

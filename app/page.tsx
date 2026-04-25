@@ -42,30 +42,45 @@ useEffect(() => {
   }
 
   return (
-    <div>
-      <Navbar />
+   <div>
+    <Navbar />
 
-      <div className="my-6">
-  <AdBanner adSlot="1234567891" adFormat="horizontal" />
-</div>
-
-    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-5 px-4">
-      {post?.length > 0 ? post?.map((item) => (
-        <PostCard 
-          key={item?._id}
-          title={item?.title || ""}
-          content={item?.content || ""}
-          image={item?.image || ""}
-          />
-        )) : (
-          <div className="col-span-full flex items-center justify-center min-h-[50vh]">
-            <div className="text-center">
-              <p className="text-xl text-gray-500 mb-2">No posts found</p>
-              <p className="text-gray-400">Check back later for new content.</p>
-            </div>
-          </div>
-        )}
-      </div>
+    {/* Top Horizontal Ad */}
+    <div className="my-6 px-4">
+      <AdBanner adSlot="1234567891" adFormat="horizontal" fullWidth />
     </div>
+
+    {/* Main Layout */}
+    <div className="flex gap-6 px-4">
+
+      {/* LEFT: Posts */}
+      <div className="flex-1">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
+          {post?.length > 0 ? post.map((item) => (
+            <PostCard
+              key={item?._id}
+              title={item?.title || ""}
+              content={item?.content || ""}
+              image={item?.image || ""}
+            />
+          )) : (
+            <div className="col-span-full flex items-center justify-center min-h-[50vh]">
+              <div className="text-center">
+                <p className="text-xl text-gray-500 mb-2">No posts found</p>
+                <p className="text-gray-400">Check back later for new content.</p>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* RIGHT: Vertical Ad */}
+      <div className="hidden lg:block w-[200px]">
+        <AdBanner adSlot="1234567892" adFormat="vertical" />
+      </div>
+
+    </div>
+  </div>
+
   )
 }
