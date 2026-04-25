@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
 import { Toaster } from "sonner";
 import { AuthProvider } from "@/context/AuthContext";
+import Script from "next/script"
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'})
 
@@ -24,7 +25,14 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn("antialiased", fontMono.variable, "font-sans", geist.variable)}
     >
+        
       <body>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
                 <AuthProvider> 
 
         <ThemeProvider>{children}</ThemeProvider>

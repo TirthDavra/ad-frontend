@@ -4,12 +4,15 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
 import { Button } from './ui/button';
+import AdBanner from "@/components/AdBanner"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { user, logout } = useAuth();
 
   return (
+    <>
+
     <nav className="bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center gap-4">
@@ -80,5 +83,7 @@ export default function Navbar() {
         </div>
       )}
     </nav>
+    <AdBanner adSlot="1234567890" adFormat="auto" fullWidth={true} />
+    </>
   );
 }

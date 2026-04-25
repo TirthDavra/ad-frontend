@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar"
 import { PostCard } from "@/components/post-card"
 import { Button } from "@/components/ui/button"
 import { useEffect, useState } from "react"
+import AdBanner from "@/components/AdBanner"
 
 export default function Page() {
 
@@ -43,6 +44,10 @@ useEffect(() => {
   return (
     <div>
       <Navbar />
+
+      <div className="my-6">
+  <AdBanner adSlot="1234567891" adFormat="horizontal" />
+</div>
 
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-5 px-4">
       {post?.length > 0 ? post?.map((item) => (
