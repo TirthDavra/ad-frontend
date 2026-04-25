@@ -39,9 +39,7 @@ export function PostCard({ title, content, image, isAdmin, handleDelete, handleE
               Delete
             </Button>
           </>
-        ) : (
-          <Button className="w-full">View Post</Button>
-        )}
+        ) : null}
       </CardFooter>
     </Card>
   )
